@@ -1,7 +1,6 @@
 package com.dio.control.AccessControlAPI.controller;
 
 import com.dio.control.AccessControlAPI.model.School;
-import com.dio.control.AccessControlAPI.model.WorkSchedule;
 import com.dio.control.AccessControlAPI.service.SchoolService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
