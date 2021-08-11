@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class SchoolService {
@@ -23,5 +24,15 @@ public class SchoolService {
 
     public List<School> findAll() {
         return schoolRepository.findAll();
+    }
+
+    public Optional<School> getById(Long idSchool) {
+        return schoolRepository.findById(idSchool);
+    }
+
+    public School update(School school) {return schoolRepository.save(school); }
+
+    public void delete(Long idSchool) {
+        schoolRepository.deleteById(idSchool);
     }
 }
