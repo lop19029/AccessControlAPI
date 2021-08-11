@@ -21,34 +21,34 @@ public class WorkScheduleController {
 
     //Create = Post
     @PostMapping
-    public WorkSchedule createJornada (@RequestBody WorkSchedule workSchedule){
+    public WorkSchedule createWorkSchedule (@RequestBody WorkSchedule workSchedule){
         return workScheduleService.save(workSchedule);
     }
 
     //Request elements from database = Get
     //List all
     @GetMapping
-    public List<WorkSchedule> getJornadaList(){
+    public List<WorkSchedule> getWorkScheduleList(){
         return workScheduleService.findAll();
     }
 
     //Response entity treats the HTTP numeric feedback (ex. 404)
-    @GetMapping("{/idJornada}")
-    public ResponseEntity<WorkSchedule> getJornadaById(@PathVariable("idJornada") Long idJornada) throws Exception {
-        return ResponseEntity.ok(workScheduleService.getById(idJornada).orElseThrow(() -> new NoSuchElementException("Jornada não encontrada")));
+    @GetMapping("{/idWorkSchedule}")
+    public ResponseEntity<WorkSchedule> getWorkScheduleById(@PathVariable("idWorkSchedule") Long idWorkSchedule) throws Exception {
+        return ResponseEntity.ok(workScheduleService.getById(idWorkSchedule).orElseThrow(() -> new NoSuchElementException("Work Schedule not found in database.")));
     }
 
     //Update = Put
     @PutMapping
-    public WorkSchedule updateJornada (@RequestBody WorkSchedule workSchedule){
+    public WorkSchedule updateWorkSchedule (@RequestBody WorkSchedule workSchedule){
         return workScheduleService.update(workSchedule);
     }
 
     //Delete
-    @DeleteMapping("{/idJornada}")
-    public ResponseEntity deleteById(@PathVariable("idJornada") Long idJornada) throws Exception {
+    @DeleteMapping("{/idWorkSchedule}")
+    public ResponseEntity deleteWorkScheduleById(@PathVariable("idWorkSchedule") Long idWorkSchedule) throws Exception {
         try {
-            workScheduleService.delete(idJornada);
+            workScheduleService.delete(idWorkSchedule);
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
